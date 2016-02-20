@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pagination / Sorting / Searching</title>
+		<!-- Bootstrap css -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+		<!-- Bootstrap Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+		<!-- Font awesome cdn -->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
+
+		<!-- jQuery Library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div style="width: 650px; margin: 20px auto">
+				<div class="input-group" style="width: 250px; float: left">
+					<input type="text" class="form-control" name="onPageSearch" id="onPageSearch" placeholder="Name...">
+					<span class="input-group-btn">
+						<input type="button" class="btn btn-default ingroupBtn" name="searchBtn" value="Search">
+					</span>
+				</div><!-- /input-group -->
+				<input type="button" class="btn btn-warning" name="clearSearch" value="Clear Search" style="float: left">
+
+			<table class="table table-condensed table-hover">
+				<thead>
+					<tr>
+						<th width="300" data-sortlabel="name">Name <i class="fa sortIcon fa-sort"></i></th>
+						<th width="150" data-sortlabel="age">Age <i class="fa sortIcon fa-sort"></i></th>
+						<th width="200" data-sortlabel="city">City <i class="fa sortIcon fa-sort"></i></th>
+					</tr>
+				</thead>
+				<tbody class="dataRow">
+				</tbody>
+			</table>
+			<div class="pagination_block"></div>
+		</div>
+
+		<script type="text/template" class="rowStructure">
+			<tr>
+				<td>-name-</td>
+				<td>-age-</td>
+				<td>-city-</td>
+			</tr>
+		</script>
+
+		<script src="js/pagination.js"></script>
+        <script src="js/sorting.js"></script>
+        <script src="js/onPageSearch.js"></script>
+        <script src="js/renderData.js"></script>
+
+		<script type="text/javascript">
+			var json = [
+							{"name": "Dheeraj Agrawal", "age": 27, "city": "Pune"},
+							{"name": "Umang Paunikar", "age": 27, "city": "RJN"},
+							{"name": "Sanjay Meravi", "age": 29, "city": "RJN"},
+							{"name": "Neeraj Jha", "age": 29, "city": "Durg"},
+							{"name": "Awhan Patnaik", "age": 37, "city": "Kolkata"},
+							{"name": "Prasad Mohite", "age": 26, "city": "Pune"},
+							{"name": "Mahesh Gawali", "age": 31, "city": "Delhi"},
+							{"name": "Mayur", "age": 35, "city": "Pune"},
+							{"name": "Prajyot Phate", "age": 23, "city": "Pune"},
+							{"name": "Mahendra Jadhav", "age": 25, "city": "Rajkot"},
+							{"name": "Prashant Agrawal", "age": 31, "city": "Ahmedabad"},
+							{"name": "Pankaj Agrawal", "age": 28, "city": "Gondia"},
+							{"name": "Mohit", "age": 27, "city": "Raipur"}
+						];
+
+			pagination.init(json, 5);
+			Sorting.init(json);
+			onpageSearch.init(json);
+		</script>
+	</body>
+</html>
